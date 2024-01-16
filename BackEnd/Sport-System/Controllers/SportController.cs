@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Sport_System.Application.DTOs.SportDTOs;
 using Sport_System.Application.Services.Interfaces;
+using Sport_System.Domain.StaticData;
 
 namespace Sport_System.Controllers
 {
