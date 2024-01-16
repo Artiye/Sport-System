@@ -27,6 +27,8 @@ namespace Sport_System.Domain.Entity
         public int SportId { get; set; }
         public Sport Sport { get; set; }
         public string SportName { get; set; }
-      
+
+        public ICollection<Player>? Players { get; set; }
+
     }
 }
