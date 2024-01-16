@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Sport_System.Application.DTOs.IdentityDTOs;
 using Sport_System.Application.DTOs.SportDTOs;
 using Sport_System.Domain.Models;
 using System.Numerics;
@@ -13,6 +14,9 @@ namespace Sport_System.MappingProfiles
             CreateMap<Sport, AddSportDTO>().ReverseMap();
             CreateMap<Sport, EditSportDTO>().ReverseMap();
             CreateMap<Sport, GetSportDTO>().ReverseMap();
+
+            CreateMap<RegisterDTO, ApplicationUser>().ReverseMap();
+            CreateMap<LoginDTO, ApplicationUser>().ReverseMap();
         }
     }
 }
