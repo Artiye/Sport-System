@@ -1,4 +1,4 @@
-﻿namespace Sport_System.Responses
+﻿namespace Sport_System.Application.Responses
 {
     public class ApiResponse
     {

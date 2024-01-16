@@ -19,4 +19,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Sport-System.Application\Sport-System.Application.csproj" />
+    <ProjectReference Include="..\Sport-System.Infrastructure\Sport-System.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

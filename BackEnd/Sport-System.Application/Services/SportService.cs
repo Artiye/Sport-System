@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using Sport_System.DTOs.SportDTOs;
-using Sport_System.Models;
-using Sport_System.Repositories.Interfaces;
-using Sport_System.Responses;
-using Sport_System.Services.Interfaces;
+using Sport_System.Application.DTOs.SportDTOs;
+using Sport_System.Application.RepositoryInterfaces;
+using Sport_System.Application.Responses;
+using Sport_System.Application.Services.Interfaces;
+using Sport_System.Domain.Models;
 
-namespace Sport_System.Services
+namespace Sport_System.Application.Services
 {
     public class SportService : ISportService
     {

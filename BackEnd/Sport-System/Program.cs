@@ -1,16 +1,13 @@
-using Sport_System.Repositories.Interfaces;
-using Sport_System.Repositories;
-using Sport_System.Services.Interfaces;
-using Sport_System.Services;
-using Sports_System.Data;
 using Microsoft.EntityFrameworkCore;
+using Sports_System.Infrastructure.Data;
+using Sport_System.Application.RepositoryInterfaces;
+using Sport_System.Application.Services.Interfaces;
+using Sport_System.Application.Services;
+using Sport_System.Infrastrcture.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

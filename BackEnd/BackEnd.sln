@@ -3,7 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33712.159
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sport-System", "Sport-System\Sport-System.csproj", "{E78E0118-36C0-4E70-AD79-A6178C0F87C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sport-System", "Sport-System\Sport-System.csproj", "{E78E0118-36C0-4E70-AD79-A6178C0F87C6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2C218687-6058-49DE-8E33-C184A14C07E1} = {2C218687-6058-49DE-8E33-C184A14C07E1}
+		{CD6A374E-2567-43FE-A103-DB3DACB05AD7} = {CD6A374E-2567-43FE-A103-DB3DACB05AD7}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sport-System.Domain", "Sport-System.Domain\Sport-System.Domain.csproj", "{FA9C160E-B80B-4E5D-AA17-C2613A17310D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sport-System.Application", "Sport-System.Application\Sport-System.Application.csproj", "{CD6A374E-2567-43FE-A103-DB3DACB05AD7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FA9C160E-B80B-4E5D-AA17-C2613A17310D} = {FA9C160E-B80B-4E5D-AA17-C2613A17310D}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sport-System.Infrastructure", "Sport-System.Infrastructure\Sport-System.Infrastructure.csproj", "{2C218687-6058-49DE-8E33-C184A14C07E1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CD6A374E-2567-43FE-A103-DB3DACB05AD7} = {CD6A374E-2567-43FE-A103-DB3DACB05AD7}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,11 +31,24 @@ Global
 		{E78E0118-36C0-4E70-AD79-A6178C0F87C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E78E0118-36C0-4E70-AD79-A6178C0F87C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E78E0118-36C0-4E70-AD79-A6178C0F87C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA9C160E-B80B-4E5D-AA17-C2613A17310D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA9C160E-B80B-4E5D-AA17-C2613A17310D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA9C160E-B80B-4E5D-AA17-C2613A17310D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA9C160E-B80B-4E5D-AA17-C2613A17310D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD6A374E-2567-43FE-A103-DB3DACB05AD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD6A374E-2567-43FE-A103-DB3DACB05AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD6A374E-2567-43FE-A103-DB3DACB05AD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD6A374E-2567-43FE-A103-DB3DACB05AD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C218687-6058-49DE-8E33-C184A14C07E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C218687-6058-49DE-8E33-C184A14C07E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C218687-6058-49DE-8E33-C184A14C07E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C218687-6058-49DE-8E33-C184A14C07E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {C369EFE1-6B73-461A-8F2F-D6FAC1D45400}
+		        SolutionGuid = {C369EFE1-6B73-461A-8F2F-D6FAC1D45400}
+		SolutionGuid = {D6A1013C-17A6-4BDB-9A0E-23EC257C8979}
 	EndGlobalSection
 EndGlobal

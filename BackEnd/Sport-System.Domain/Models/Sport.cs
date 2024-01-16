@@ -1,9 +1,12 @@
-﻿namespace Sport_System.DTOs.SportDTOs
+﻿using System.Numerics;
+
+namespace Sport_System.Domain.Models
 {
-    public class GetSportDTO
+    public class Sport
     {
         public int SportId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+       
     }
 }
