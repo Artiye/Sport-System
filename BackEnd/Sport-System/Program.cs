@@ -13,6 +13,8 @@ using Sport_System.Domain.Models;
 using Sport_System.Application.Utility.Options;
 using Sport_System.Application.Utility.Interfaces;
 using Sport_System.Application.Utility;
+using SportsManagementSystem.Application.RepositoryInterfaces;
+using Sport_System.Infrastructure.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -47,16 +49,21 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
 builder.Services.AddScoped<ISportRepository, SportRepository>();
 builder.Services.AddScoped<ISportService, SportService>();
 
+builder.Services.AddScoped<ITeamRepository, TeamRepository>();
+builder.Services.AddScoped<ITeamService, TeamService>();
+
 builder.Services.AddScoped<IIdentityService, IdentityService>();
 
 builder.Services.AddScoped<ITokenGenerator, TokenGenerator>();
 builder.Services.AddScoped<IEmailSender, EmailSender>();
+builder.Services.AddScoped<IPhotoSaver, PhotoSaver>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.Configure<EmailOptions>(builder.Configuration.GetSection(EmailOptions.EmailSender));
 

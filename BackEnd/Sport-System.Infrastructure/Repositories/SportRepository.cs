@@ -19,6 +19,7 @@ namespace Sport_System.Infrastrcture.Repositories
                 await _context.SaveChangesAsync();
                 return sport;
             }
+
             public async Task<Sport> DeleteSport(Sport sport)
             {
                 _context.Sports.Remove(sport);
@@ -58,4 +59,3 @@ namespace Sport_System.Infrastrcture.Repositories
             }
         }
     }
-

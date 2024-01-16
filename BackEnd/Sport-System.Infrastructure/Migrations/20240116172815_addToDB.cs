@@ -174,13 +174,47 @@ namespace Sport_System.Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Teams",
+                columns: table => new
+                {
+                    TeamId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ShortName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    YearFounded = table.Column<int>(type: "int", nullable: true),
+                    LogoUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Registered_At = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    TeamOwnerId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    SportId = table.Column<int>(type: "int", nullable: false),
+                    SportName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Teams", x => x.TeamId);
+                    table.ForeignKey(
+                        name: "FK_Teams_AspNetUsers_TeamOwnerId",
+                        column: x => x.TeamOwnerId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Teams_Sports_SportId",
+                        column: x => x.SportId,
+                        principalTable: "Sports",
+                        principalColumn: "SportId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "adminRoleId1293931239438254523", "336bb4f1-0061-4f0a-a71b-a99f32f68779", "Admin", "ADMIN" },
-                    { "userRoleId23094852091092347944", "db5de6a8-13f5-4ce4-91d1-a404de62f1c9", "RegisteredUser", "REGISTEREDUSER" }
+                    { "adminRoleId1293931239438254523", "87de06fa-a3fb-4f6e-9533-64f6123cf457", "Admin", "ADMIN" },
+                    { "userRoleId23094852091092347944", "16916e64-71c6-438e-b512-e707c8e4c434", "RegisteredUser", "REGISTEREDUSER" }
                 });
 
             migrationBuilder.InsertData(
@@ -188,8 +222,8 @@ namespace Sport_System.Infrastructure.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "DateOfBirth", "Email", "EmailConfirmed", "FirstName", "Gender", "LastName", "LockoutEnabled", "LockoutEnd", "Nationality", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfileUrl", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "adminuser11234980723452903459235", 0, "2b7c2b9d-a4a0-4206-8fb9-7dc8256fc6f5", new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "kbacaj5@gmail.com", false, "Admin", "Male", "User", false, null, "Albanian", "KBACAJ5@GMAIL.COM", null, "AQAAAAEAACcQAAAAEKUNlvKuXiNONnse+vAr6wwgDk1Vat23b/b0eq9yiROlgL5xcv7JLUZpdEtOKfg2tg==", null, false, "/images/profilepicture.jpg", "35a4addc-0152-41d3-a753-76705068e342", false, "admin" },
-                    { "defaultuser11234980723452903459235", 0, "5dc6f8ea-2e75-41ba-a736-23b21c712018", new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "user@gmail.com", false, "Default", "Male", "User", false, null, "Albanian", "USER@GMAIL.COM", null, "AQAAAAEAACcQAAAAEBTIrT8jymulVlsztGa8a6CalEg9YHviE2V5yUF2W94juSHsLWuYy+S1Rl6TNOIJWQ==", null, false, "/images/profilepicture.jpg", "680c20d7-32b5-4e45-8731-7a42fb0851d9", false, "defaultUser" }
+                    { "adminuser11234980723452903459235", 0, "6820abbd-ea3f-4692-b070-d086e4004d69", new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "kbacaj5@gmail.com", false, "Admin", "Male", "User", false, null, "Albanian", "KBACAJ5@GMAIL.COM", null, "AQAAAAEAACcQAAAAEOf1EEVM0cQcaL5ueuTPeeRXDgU9iiHpIVtAPp2rU1A0kk1iuOYCJGrGmf20lixmrA==", null, false, "/images/profilepicture.jpg", "815fabb5-3917-418c-80ef-5f4bf0a103d9", false, "admin" },
+                    { "defaultuser11234980723452903459235", 0, "2ff9de4d-cff9-42f9-8893-b513ef8dad0e", new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "user@gmail.com", false, "Default", "Male", "User", false, null, "Albanian", "USER@GMAIL.COM", null, "AQAAAAEAACcQAAAAEI70Ck/Bl9FNbj3W8zEM10PG9gfK5WIOo/eiwBVIoCDA/7TBzDCi6lHmuzdkWFuxCQ==", null, false, "/images/profilepicture.jpg", "3b32cd4b-9dd9-4223-bf79-75a81e9ad5e6", false, "defaultUser" }
                 });
 
             migrationBuilder.InsertData(
@@ -240,6 +274,16 @@ namespace Sport_System.Infrastructure.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Teams_SportId",
+                table: "Teams",
+                column: "SportId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Teams_TeamOwnerId",
+                table: "Teams",
+                column: "TeamOwnerId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -260,13 +304,16 @@ namespace Sport_System.Infrastructure.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Sports");
+                name: "Teams");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Sports");
         }
     }
 }
