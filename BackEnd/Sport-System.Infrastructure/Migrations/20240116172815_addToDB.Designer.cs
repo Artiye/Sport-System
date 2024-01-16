@@ -12,7 +12,7 @@ using Sports_System.Infrastructure.Data;
 namespace Sport_System.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240116152726_addToDB")]
+    [Migration("20240116172815_addToDB")]
     partial class addToDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,14 +54,14 @@ namespace Sport_System.Infrastructure.Migrations
                         new
                         {
                             Id = "adminRoleId1293931239438254523",
-                            ConcurrencyStamp = "336bb4f1-0061-4f0a-a71b-a99f32f68779",
+                            ConcurrencyStamp = "87de06fa-a3fb-4f6e-9533-64f6123cf457",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "userRoleId23094852091092347944",
-                            ConcurrencyStamp = "db5de6a8-13f5-4ce4-91d1-a404de62f1c9",
+                            ConcurrencyStamp = "16916e64-71c6-438e-b512-e707c8e4c434",
                             Name = "RegisteredUser",
                             NormalizedName = "REGISTEREDUSER"
                         });
@@ -185,6 +185,57 @@ namespace Sport_System.Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Sport_System.Domain.Entity.Team", b =>
+                {
+                    b.Property<int>("TeamId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TeamId"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LogoUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Registered_At")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ShortName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SportId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SportName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TeamOwnerId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("YearFounded")
+                        .HasColumnType("int");
+
+                    b.HasKey("TeamId");
+
+                    b.HasIndex("SportId");
+
+                    b.HasIndex("TeamOwnerId");
+
+                    b.ToTable("Teams");
+                });
+
             modelBuilder.Entity("Sport_System.Domain.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -276,7 +327,7 @@ namespace Sport_System.Infrastructure.Migrations
                         {
                             Id = "adminuser11234980723452903459235",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2b7c2b9d-a4a0-4206-8fb9-7dc8256fc6f5",
+                            ConcurrencyStamp = "6820abbd-ea3f-4692-b070-d086e4004d69",
                             DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "kbacaj5@gmail.com",
                             EmailConfirmed = false,
@@ -286,10 +337,10 @@ namespace Sport_System.Infrastructure.Migrations
                             LockoutEnabled = false,
                             Nationality = "Albanian",
                             NormalizedEmail = "KBACAJ5@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKUNlvKuXiNONnse+vAr6wwgDk1Vat23b/b0eq9yiROlgL5xcv7JLUZpdEtOKfg2tg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOf1EEVM0cQcaL5ueuTPeeRXDgU9iiHpIVtAPp2rU1A0kk1iuOYCJGrGmf20lixmrA==",
                             PhoneNumberConfirmed = false,
                             ProfileUrl = "/images/profilepicture.jpg",
-                            SecurityStamp = "35a4addc-0152-41d3-a753-76705068e342",
+                            SecurityStamp = "815fabb5-3917-418c-80ef-5f4bf0a103d9",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
@@ -297,7 +348,7 @@ namespace Sport_System.Infrastructure.Migrations
                         {
                             Id = "defaultuser11234980723452903459235",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5dc6f8ea-2e75-41ba-a736-23b21c712018",
+                            ConcurrencyStamp = "2ff9de4d-cff9-42f9-8893-b513ef8dad0e",
                             DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "user@gmail.com",
                             EmailConfirmed = false,
@@ -307,10 +358,10 @@ namespace Sport_System.Infrastructure.Migrations
                             LockoutEnabled = false,
                             Nationality = "Albanian",
                             NormalizedEmail = "USER@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBTIrT8jymulVlsztGa8a6CalEg9YHviE2V5yUF2W94juSHsLWuYy+S1Rl6TNOIJWQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEI70Ck/Bl9FNbj3W8zEM10PG9gfK5WIOo/eiwBVIoCDA/7TBzDCi6lHmuzdkWFuxCQ==",
                             PhoneNumberConfirmed = false,
                             ProfileUrl = "/images/profilepicture.jpg",
-                            SecurityStamp = "680c20d7-32b5-4e45-8731-7a42fb0851d9",
+                            SecurityStamp = "3b32cd4b-9dd9-4223-bf79-75a81e9ad5e6",
                             TwoFactorEnabled = false,
                             UserName = "defaultUser"
                         });
@@ -386,6 +437,25 @@ namespace Sport_System.Infrastructure.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Sport_System.Domain.Entity.Team", b =>
+                {
+                    b.HasOne("Sport_System.Domain.Models.Sport", "Sport")
+                        .WithMany()
+                        .HasForeignKey("SportId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Sport_System.Domain.Models.ApplicationUser", "TeamOwner")
+                        .WithMany()
+                        .HasForeignKey("TeamOwnerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Sport");
+
+                    b.Navigation("TeamOwner");
                 });
 #pragma warning restore 612, 618
         }
