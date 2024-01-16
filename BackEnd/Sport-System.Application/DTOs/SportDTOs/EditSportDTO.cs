@@ -1,4 +1,4 @@
-﻿namespace Sport_System.DTOs.SportDTOs
+﻿namespace Sport_System.Application.DTOs.SportDTOs
 {
     public class EditSportDTO
     {

@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Sport_System.DTOs.SportDTOs;
-using Sport_System.Services.Interfaces;
-
+using Sport_System.Application.DTOs.SportDTOs;
+using Sport_System.Application.Services.Interfaces;
 
 namespace Sport_System.Controllers
 {

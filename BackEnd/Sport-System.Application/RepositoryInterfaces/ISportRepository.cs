@@ -1,6 +1,6 @@
-﻿using Sport_System.Models;
+﻿using Sport_System.Domain.Models;
 
-namespace Sport_System.Repositories.Interfaces
+namespace Sport_System.Application.RepositoryInterfaces
 {
     public interface ISportRepository
     {

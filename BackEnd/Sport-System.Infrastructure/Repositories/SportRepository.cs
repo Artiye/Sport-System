@@ -1,13 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Sport_System.Models;
-using Sport_System.Repositories.Interfaces;
-using Sports_System.Data;
-using static Sport_System.Repositories.SportRepository;
+using Sport_System.Application.RepositoryInterfaces;
+using Sport_System.Domain.Models;
+using Sports_System.Infrastructure.Data;
 
-namespace Sport_System.Repositories
+namespace Sport_System.Infrastrcture.Repositories
 {
-    
-  
         public class SportRepository : ISportRepository
         {
             private readonly ApplicationDbContext _context;

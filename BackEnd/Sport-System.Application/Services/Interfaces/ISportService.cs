@@ -1,7 +1,7 @@
-﻿using Sport_System.DTOs.SportDTOs;
-using Sport_System.Responses;
+﻿using Sport_System.Application.DTOs.SportDTOs;
+using Sport_System.Application.Responses;
 
-namespace Sport_System.Services.Interfaces
+namespace Sport_System.Application.Services.Interfaces
 {
     public interface ISportService
     {
