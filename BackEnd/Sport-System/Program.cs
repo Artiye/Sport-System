@@ -16,6 +16,7 @@ using Sport_System.Application.Utility;
 using SportsManagementSystem.Application.RepositoryInterfaces;
 using Sport_System.Infrastructure.Repository;
 using SportsManagementSystem.Application.Services;
+using Sport_System.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -62,6 +63,10 @@ builder.Services.AddScoped<ITeamService, TeamService>();
 
 builder.Services.AddScoped<IPlayerRepository, PlayerRepository>();
 builder.Services.AddScoped<IPlayerService, PlayerService>();
+
+builder.Services.AddScoped<ITournamentRepository, TournamentRepository>();
+builder.Services.AddScoped<ITournamentService, TournamentService>();
+
 
 builder.Services.AddScoped<IIdentityService, IdentityService>();
 

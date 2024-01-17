@@ -9,14 +9,6 @@ using Sport_System.Application.Utility.Interfaces;
 using Sport_System.Domain.Entity;
 using Sport_System.Domain.Models;
 using Sport_System.Domain.StaticData;
-using Sport_System.Application.DTOs.TeamDTOs;
-using Sport_System.Application.RepositoryInterfaces;
-using Sport_System.Application.Responses;
-using Sport_System.Application.Services.Interfaces;
-using Sport_System.Application.Utility;
-using Sport_System.Application.Utility.Interfaces;
-using Sport_System.Domain.Entity;
-using Sport_System.Domain.StaticData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -113,7 +105,7 @@ namespace Sport_System.Application.Services
                     if (string.Equals(team.LogoUrl, dto.Logo.FileName))
                         return new ApiResponse(400, "No changes were made to the team logo.");
 
-                    string oldPhotoFilePath = "./Images/" + team.LogoUrl;
+                    string oldPhotoFilePath = team.LogoUrl;
                     string newPhotoFilePath = await _photoSaver.SavePhoto(dto.Logo);
                     team.LogoUrl = newPhotoFilePath;
 
@@ -132,7 +124,7 @@ namespace Sport_System.Application.Services
             if (team != null)
             {
                 await _teamRepository.DeleteTeam(team);
-                var logo = "./Images/" + team.LogoUrl;
+                var logo = team.LogoUrl;
 
                 if (!string.IsNullOrEmpty(team.LogoUrl) && File.Exists(logo))
                     File.Delete(logo);
@@ -152,10 +144,6 @@ namespace Sport_System.Application.Services
             return teamDTO;
         }
 
-       
-
-       
-
         public async Task<List<GetTeamDTO>> GetAllTeams()
         {
             var teams = await _teamRepository.GetAllTeams();
@@ -165,8 +153,6 @@ namespace Sport_System.Application.Services
             var teamDTOList = _mapper.Map<List<GetTeamDTO>>(teams);
             return teamDTOList;
         }
-
-
 
         public async Task<List<GetTeamDTO>> SearchTeams(string searchTerm)
         {
