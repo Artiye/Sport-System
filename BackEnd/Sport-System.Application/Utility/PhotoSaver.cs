@@ -25,7 +25,7 @@ namespace Sport_System.Application.Utility
             {
                 await photoFile.CopyToAsync(stream);
             }
-            return "/images/" + fileName;
+            return "../Sport-System.Application/Images/" + fileName;
         }
     }
 }

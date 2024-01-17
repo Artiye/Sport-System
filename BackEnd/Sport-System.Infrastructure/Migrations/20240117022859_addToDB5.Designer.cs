@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Sports_System.Infrastructure.Data;
 
@@ -11,9 +12,10 @@ using Sports_System.Infrastructure.Data;
 namespace Sport_System.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240117022859_addToDB5")]
+    partial class addToDB5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,37 +54,23 @@ namespace Sport_System.Infrastructure.Migrations
                         new
                         {
                             Id = "adminRoleId1293931239438254523",
-                            ConcurrencyStamp = "1f6d04fc-fa94-4aeb-a6b3-d90708f4b853",
+                            ConcurrencyStamp = "e357537a-2712-411a-b309-5262a434fd08",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "userRoleId23094852091092347944",
-                            ConcurrencyStamp = "fa70e9f9-fdf0-41bf-bc8b-f85357dd161b",
+                            ConcurrencyStamp = "1f5a6b1b-febb-4e8d-9ae4-eb5bf123b011",
                             Name = "RegisteredUser",
                             NormalizedName = "REGISTEREDUSER"
                         },
                         new
                         {
-                            Id = "teamOwnerRoleId23453453451092312341",
-                            ConcurrencyStamp = "a499a182-53b9-4865-8444-2f3d8783115e",
+                            Id = "userRoleId23453453451092347944",
+                            ConcurrencyStamp = "f9983f88-faef-440c-9909-bfbbf4215665",
                             Name = "TeamOwner",
                             NormalizedName = "TEAMOWNER"
-                        },
-                        new
-                        {
-                            Id = "playerRoleId2345123412339234794",
-                            ConcurrencyStamp = "65bbc992-1e33-4b2f-8b3e-af095e82ae82",
-                            Name = "Player",
-                            NormalizedName = "PLAYER"
-                        },
-                        new
-                        {
-                            Id = "tournamentAdministratorRoleId2345334566",
-                            ConcurrencyStamp = "9a2db018-3a8d-401e-8e83-0b9a48331d62",
-                            Name = "TournamentAdministrator",
-                            NormalizedName = "TOURNAMENTADMINISTRATOR"
                         });
                 });
 
@@ -390,7 +378,7 @@ namespace Sport_System.Infrastructure.Migrations
                         {
                             Id = "adminuser11234980723452903459235",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "895736c4-16f8-4993-a30c-a893a327caec",
+                            ConcurrencyStamp = "5196f823-e9b0-41d3-b8d2-b2c126df81af",
                             DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "kbacaj5@gmail.com",
                             EmailConfirmed = false,
@@ -400,10 +388,10 @@ namespace Sport_System.Infrastructure.Migrations
                             LockoutEnabled = false,
                             Nationality = "Albanian",
                             NormalizedEmail = "KBACAJ5@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKExXiQS9WlvgM3KJOmkNSydNPSjelryj5dqrGIHGOvaDqbG1ZB1u8PIZ+9jFsBj+A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMxzK/HOECzmF2xCUd/WxeCynkZMwYTbBQkNE+SLWnOw7eGV5hFJPB7efWHgmvOVPQ==",
                             PhoneNumberConfirmed = false,
                             ProfileUrl = "/images/profilepicture.jpg",
-                            SecurityStamp = "4f35ba4a-fbb0-496b-bc1b-2984b1183b42",
+                            SecurityStamp = "0ca3fd9d-543d-4af9-a1de-a482fbcb5600",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
@@ -411,7 +399,7 @@ namespace Sport_System.Infrastructure.Migrations
                         {
                             Id = "defaultuser11234980723452903459235",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "15f654ea-3bd4-49ed-be9b-6653f05c423f",
+                            ConcurrencyStamp = "9c5e7a36-553c-4d83-92ed-e21f56a9c79f",
                             DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "user@gmail.com",
                             EmailConfirmed = false,
@@ -421,10 +409,10 @@ namespace Sport_System.Infrastructure.Migrations
                             LockoutEnabled = false,
                             Nationality = "Albanian",
                             NormalizedEmail = "USER@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEC3jOuGgXxG5xPVPGiw0Pub15yRM7gR+u7aExD9Vdfa4JHXVOyyQaz4DI95oqF+b/g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDOVprZrhaqLhLKa2pa0r0HXw/6nL67KKaG5P7S5XpSzjbHiVYGqhJsELJnxLNTiJA==",
                             PhoneNumberConfirmed = false,
                             ProfileUrl = "/images/profilepicture.jpg",
-                            SecurityStamp = "7ccd4c34-e8e0-46b9-bd1e-1f48a0e6370f",
+                            SecurityStamp = "c8bb0e32-e414-4725-bff2-1289be9091e2",
                             TwoFactorEnabled = false,
                             UserName = "defaultUser"
                         });

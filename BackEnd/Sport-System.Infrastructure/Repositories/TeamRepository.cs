@@ -2,7 +2,6 @@
 using Sport_System.Domain.Entity;
 using Sports_System.Infrastructure.Data;
 using Sport_System.Application.RepositoryInterfaces;
-using Sport_System.Domain.Entity;
 using Sport_System.Domain.StaticData;
 using Sport_System.Infrastructure.Data;
 using System;
