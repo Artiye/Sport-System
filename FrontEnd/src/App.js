@@ -1,8 +1,7 @@
+import Layout from "./routers_layout/Layout";
+
 function App() {
-  return (
-    <div className="App">
-    </div>
-  );
+  return <Layout />;
 }
 
 export default App;

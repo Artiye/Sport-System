@@ -1,0 +1,86 @@
+.header__top {
+  padding: 10px 0px;
+  background: #000000;
+  color: #fff;
+}
+
+.header__top__right a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+}
+
+.header__top__right a:hover {
+  color: #f92626;
+}
+
+.main__navbar {
+  padding: 15px 0px;
+  background: #000000;
+}
+
+.nav__item {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav__item:hover {
+  color: #f92626;
+}
+
+.nav__active {
+  color: #f92626;
+}
+
+#SportsLogo {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.dropdown-menu {
+  background: #000000 !important; 
+}
+
+.dropdown-menu .dropdown-menu-item:hover {
+  background: #d41616;
+}
+
+.dropdown-menu .dropdown-menu-item{
+  padding: 10px 15px;
+}
+
+.dropdown-menu .dropdown-menu-item .theLink{
+  text-decoration: none;
+  color: white;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+}
+
+.site-logo img {
+  max-width: 300px; 
+  max-height: 50px; 
+  margin-left: 40px;
+}
+
+@media only screen and (max-width: 768px) {
+  .header__top,
+  .nav__right {
+    display: none;
+  }
+
+  .navigation {
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: none;
+  }
+}
+
