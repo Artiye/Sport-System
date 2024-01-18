@@ -3,6 +3,7 @@ import { Container, Row, Col, Dropdown, DropdownToggle, DropdownMenu, DropdownIt
 import { Link, NavLink, useLocation, useNavigate  } from "react-router-dom";
 import { useContext } from 'react';
 import { UserContext } from '../pages/IdentityPages/UserContext';
+import ProfileMenu from "./ProfileMenu";
 import "../styles/header.css";
 import logo from "../all-images/gameChangerLogo.png";
 
@@ -45,6 +46,11 @@ const Header = () => {
 
             <Col lg="6" md="6" sm="6">
             <div className="header__top__right d-flex align-items-center justify-content-end gap-3">
+                {isLoggedIn ? (
+                  <>
+                    <ProfileMenu/>
+                  </>
+                ) : (
                   <>
                     <Link style={{ fontSize:'19px', margin:"0px 5px"}}  to="/login" className="d-flex align-items-center gap-1">
                       <i className="ri-login-circle-line"></i> Login
@@ -54,6 +60,7 @@ const Header = () => {
                       <i class="ri-user-add-line"></i> Register
                     </Link>
                   </>
+                )}
               </div>
             </Col>
           </Row>

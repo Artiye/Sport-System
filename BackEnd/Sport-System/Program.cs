@@ -69,6 +69,8 @@ builder.Services.AddScoped<ITournamentService, TournamentService>();
 
 
 builder.Services.AddScoped<IIdentityService, IdentityService>();
+builder.Services.AddScoped<IIdentityUserService, IdentityUserService>();
+
 
 builder.Services.AddScoped<ITokenGenerator, TokenGenerator>();
 builder.Services.AddScoped<IEmailSender, EmailSender>();
@@ -102,7 +104,18 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
     });
 
+
+builder.Services.AddCors();
 var app = builder.Build();
+
+app.UseCors(builder =>
+{
+    builder.WithOrigins("http://localhost:3000")
+           .AllowAnyHeader()
+           .AllowAnyMethod()
+           .AllowCredentials();
+});
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
