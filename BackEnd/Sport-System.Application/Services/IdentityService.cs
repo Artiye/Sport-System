@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.EntityFrameworkCore;
 using Sport_System.Application.DTOs.IdentityDTOs;
+using Sport_System.Application.DTOs.IdentityUserDTOs;
 using Sport_System.Application.Responses;
 using Sport_System.Application.Services.Interfaces;
 using Sport_System.Application.Utility.Interfaces;
@@ -114,6 +116,7 @@ namespace Sport_System.Application.Services
 
             return new ApiResponse(400, "Something went Wrong.");
         }
+
         public async Task<ApiResponse> ChangePasswordAsync(ChangePasswordDTO dto)
         {
             var user = await _userManager.FindByIdAsync(dto.userId);
@@ -137,5 +140,7 @@ namespace Sport_System.Application.Services
                 return new ApiResponse(400, "Failed to change password. Ensure that the old password is correct and the new password meets the security requirements.");
             }
         }
+
+
     }
 }
