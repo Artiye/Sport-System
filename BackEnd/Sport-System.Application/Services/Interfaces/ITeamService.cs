@@ -17,7 +17,10 @@ namespace Sport_System.Application.Services.Interfaces
         Task<ApiResponse> EditTeamLogo(EditTeamLogoDTO dto);
         Task<ApiResponse> DeleteTeam(int id);
         Task<GetTeamDTO> GetTeamById(int id);
+        Task<List<GetTeamDTO>> GetTeamsByUserId(string userId);
+        Task<List<GetTeamDTO>> GetTeamsUserPlaysFor(string userId);
         Task<List<GetTeamDTO>> GetAllTeams();
+        Task<List<GetTeamDTO>> GetTeamsByPlayer(int playerId);
         Task<List<GetTeamDTO>> SearchTeams(string searchTerm);
     }
 }

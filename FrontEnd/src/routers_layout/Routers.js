@@ -5,6 +5,10 @@ import Login from "../pages/IdentityPages/LogIn";
 import Register from "../pages/IdentityPages/Register";
 import ForgotPassword from "../pages/IdentityPages/ForgotPassword";
 import ResetPassword from "../pages/IdentityPages/ResetPassword";
+import MyTeams from "../pages/TeamPages/MyTeams";
+import TeamDetails from "../pages/TeamPages/TeamDetails";
+import AddTeam from "../pages/TeamPages/AddTeam"; 
+import AllTeams from "../pages/TeamPages/AllTeams";
 
 const Routers = () => {
   const navigate = useNavigate();
@@ -20,6 +24,10 @@ const Routers = () => {
       <Route path="/register" element={<Register />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/ResetPassword/:email/:token" element={<ResetPassword />} />
+      <Route path="/my-teams" element={<MyTeams />} />
+      <Route path="/teams/:teamId" element={<TeamDetails />} />
+      <Route path="/add-team" element={<AddTeam />} />
+      <Route path="/all-teams" element={<AllTeams />} />
     </Routes>
   );
 };

@@ -1,0 +1,18 @@
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination {
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+
+.page-item {
+  margin: 0 3px;
+}
+
+.pagination__active-button {
+  background-color: rgb(0, 0, 0) !important;
+} 

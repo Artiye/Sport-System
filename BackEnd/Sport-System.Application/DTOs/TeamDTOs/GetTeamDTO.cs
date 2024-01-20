@@ -1,4 +1,6 @@
-﻿using Sport_System.Domain.Entity;
+﻿using Sport_System.Application.DTOs.PlayerDTOs;
+using Sport_System.Application.DTOs.TournamentDTOs;
+using Sport_System.Domain.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +22,7 @@ namespace Sport_System.Application.DTOs.TeamDTOs
         public string TeamOwnerId { get; set; }
         public int SportId { get; set; }
         public string SportName { get; set; }
-        
+        public ICollection<GetPlayerDTO> Players { get; set; }
+        public ICollection<GetOnlyTournamentDTO> Tournaments { get; set; }
     }
 }

@@ -52,35 +52,35 @@ namespace Sport_System.Infrastructure.Migrations
                         new
                         {
                             Id = "adminRoleId1293931239438254523",
-                            ConcurrencyStamp = "1f6d04fc-fa94-4aeb-a6b3-d90708f4b853",
+                            ConcurrencyStamp = "d7def3ba-0c69-48cc-9153-e42a3a0edcdf",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "userRoleId23094852091092347944",
-                            ConcurrencyStamp = "fa70e9f9-fdf0-41bf-bc8b-f85357dd161b",
+                            ConcurrencyStamp = "fa927cce-5d7c-437c-be42-a2ae2c65cd1e",
                             Name = "RegisteredUser",
                             NormalizedName = "REGISTEREDUSER"
                         },
                         new
                         {
                             Id = "teamOwnerRoleId23453453451092312341",
-                            ConcurrencyStamp = "a499a182-53b9-4865-8444-2f3d8783115e",
+                            ConcurrencyStamp = "9de8e2c7-9c11-4d1a-b327-9bd4cb96c017",
                             Name = "TeamOwner",
                             NormalizedName = "TEAMOWNER"
                         },
                         new
                         {
                             Id = "playerRoleId2345123412339234794",
-                            ConcurrencyStamp = "65bbc992-1e33-4b2f-8b3e-af095e82ae82",
+                            ConcurrencyStamp = "3e291984-4d81-4754-a2a8-dbea6b9b9582",
                             Name = "Player",
                             NormalizedName = "PLAYER"
                         },
                         new
                         {
                             Id = "tournamentAdministratorRoleId2345334566",
-                            ConcurrencyStamp = "9a2db018-3a8d-401e-8e83-0b9a48331d62",
+                            ConcurrencyStamp = "2ecece4a-55b7-4f06-9847-769905bafba0",
                             Name = "TournamentAdministrator",
                             NormalizedName = "TOURNAMENTADMINISTRATOR"
                         });
@@ -230,6 +230,7 @@ namespace Sport_System.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("TeamId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.HasKey("PlayerId");
@@ -282,9 +283,6 @@ namespace Sport_System.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int?>("TournamentId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("YearFounded")
                         .HasColumnType("int");
 
@@ -293,8 +291,6 @@ namespace Sport_System.Infrastructure.Migrations
                     b.HasIndex("SportId");
 
                     b.HasIndex("TeamOwnerId");
-
-                    b.HasIndex("TournamentId");
 
                     b.ToTable("Teams");
                 });
@@ -390,7 +386,7 @@ namespace Sport_System.Infrastructure.Migrations
                         {
                             Id = "adminuser11234980723452903459235",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "895736c4-16f8-4993-a30c-a893a327caec",
+                            ConcurrencyStamp = "da8414f1-32de-4eef-9285-83f267c1eb11",
                             DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "kbacaj5@gmail.com",
                             EmailConfirmed = false,
@@ -400,10 +396,10 @@ namespace Sport_System.Infrastructure.Migrations
                             LockoutEnabled = false,
                             Nationality = "Albanian",
                             NormalizedEmail = "KBACAJ5@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKExXiQS9WlvgM3KJOmkNSydNPSjelryj5dqrGIHGOvaDqbG1ZB1u8PIZ+9jFsBj+A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOrsobCFkeKfZSQ4Hj6sS4NK3OH2fgWMivcsKkW/GgHMK6BECtVycfamXWhtM7I+eA==",
                             PhoneNumberConfirmed = false,
                             ProfileUrl = "/images/profilepicture.jpg",
-                            SecurityStamp = "4f35ba4a-fbb0-496b-bc1b-2984b1183b42",
+                            SecurityStamp = "92ec5516-e669-432e-b511-bce7de834ee8",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
@@ -411,7 +407,7 @@ namespace Sport_System.Infrastructure.Migrations
                         {
                             Id = "defaultuser11234980723452903459235",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "15f654ea-3bd4-49ed-be9b-6653f05c423f",
+                            ConcurrencyStamp = "41ad92eb-4275-4763-9372-a02e44f2f6ee",
                             DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "user@gmail.com",
                             EmailConfirmed = false,
@@ -421,10 +417,10 @@ namespace Sport_System.Infrastructure.Migrations
                             LockoutEnabled = false,
                             Nationality = "Albanian",
                             NormalizedEmail = "USER@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEC3jOuGgXxG5xPVPGiw0Pub15yRM7gR+u7aExD9Vdfa4JHXVOyyQaz4DI95oqF+b/g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECewDsHqh3Yefdq6LDSBBaaaBpsGkjho1xGahrG18wrywOTD7IDZFnXzl5GGinokVg==",
                             PhoneNumberConfirmed = false,
                             ProfileUrl = "/images/profilepicture.jpg",
-                            SecurityStamp = "7ccd4c34-e8e0-46b9-bd1e-1f48a0e6370f",
+                            SecurityStamp = "9cac8b74-d34e-4ad9-b125-b17da867c3a4",
                             TwoFactorEnabled = false,
                             UserName = "defaultUser"
                         });
@@ -458,9 +454,6 @@ namespace Sport_System.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TournamentId"), 1L, 1);
-
-                    b.Property<int?>("BracketId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -497,6 +490,21 @@ namespace Sport_System.Infrastructure.Migrations
                     b.HasIndex("TournamentAdministratorId");
 
                     b.ToTable("Tournaments");
+                });
+
+            modelBuilder.Entity("TeamTournament", b =>
+                {
+                    b.Property<int>("TeamsTeamId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TournamentsTournamentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("TeamsTeamId", "TournamentsTournamentId");
+
+                    b.HasIndex("TournamentsTournamentId");
+
+                    b.ToTable("TeamTournament");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -553,20 +561,22 @@ namespace Sport_System.Infrastructure.Migrations
             modelBuilder.Entity("Sport_System.Domain.Entity.Player", b =>
                 {
                     b.HasOne("Sport_System.Domain.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany()
+                        .WithMany("Players")
                         .HasForeignKey("ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Sport_System.Domain.Models.Sport", "Sport")
-                        .WithMany()
+                        .WithMany("Players")
                         .HasForeignKey("SportId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Sport_System.Domain.Entity.Team", "Team")
                         .WithMany("Players")
-                        .HasForeignKey("TeamId");
+                        .HasForeignKey("TeamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("ApplicationUser");
 
@@ -578,20 +588,16 @@ namespace Sport_System.Infrastructure.Migrations
             modelBuilder.Entity("Sport_System.Domain.Entity.Team", b =>
                 {
                     b.HasOne("Sport_System.Domain.Models.Sport", "Sport")
-                        .WithMany()
+                        .WithMany("Teams")
                         .HasForeignKey("SportId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Sport_System.Domain.Models.ApplicationUser", "TeamOwner")
-                        .WithMany()
-                        .HasForeignKey("TeamOwnerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Sport_System.Domain.Models.Tournament", null)
                         .WithMany("Teams")
-                        .HasForeignKey("TournamentId");
+                        .HasForeignKey("TeamOwnerId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.Navigation("Sport");
 
@@ -601,13 +607,13 @@ namespace Sport_System.Infrastructure.Migrations
             modelBuilder.Entity("Sport_System.Domain.Models.Tournament", b =>
                 {
                     b.HasOne("Sport_System.Domain.Models.Sport", "Sport")
-                        .WithMany()
+                        .WithMany("Tournaments")
                         .HasForeignKey("SportId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Sport_System.Domain.Models.ApplicationUser", "TournamentAdministrator")
-                        .WithMany()
+                        .WithMany("Tournaments")
                         .HasForeignKey("TournamentAdministratorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -617,14 +623,42 @@ namespace Sport_System.Infrastructure.Migrations
                     b.Navigation("TournamentAdministrator");
                 });
 
+            modelBuilder.Entity("TeamTournament", b =>
+                {
+                    b.HasOne("Sport_System.Domain.Entity.Team", null)
+                        .WithMany()
+                        .HasForeignKey("TeamsTeamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Sport_System.Domain.Models.Tournament", null)
+                        .WithMany()
+                        .HasForeignKey("TournamentsTournamentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Sport_System.Domain.Entity.Team", b =>
                 {
                     b.Navigation("Players");
                 });
 
-            modelBuilder.Entity("Sport_System.Domain.Models.Tournament", b =>
+            modelBuilder.Entity("Sport_System.Domain.Models.ApplicationUser", b =>
                 {
+                    b.Navigation("Players");
+
                     b.Navigation("Teams");
+
+                    b.Navigation("Tournaments");
+                });
+
+            modelBuilder.Entity("Sport_System.Domain.Models.Sport", b =>
+                {
+                    b.Navigation("Players");
+
+                    b.Navigation("Teams");
+
+                    b.Navigation("Tournaments");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,0 +1,52 @@
+body {
+    margin-top: 20px;
+    background-color: #f2f6fc;
+    color: #69707a;
+}
+
+.card {
+    box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+} 
+
+.image-upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.saveButton {
+    margin: auto;
+    margin-top: 5px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    background-color: #000000;
+    color: white;
+    border-radius: 15px;
+    font-weight:480;
+}
+
+.saveButton:hover {
+    background-color: #000000;
+    color: white;
+    font-weight:480;
+}
+
+.deleteButton{
+    margin: auto;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    font-weight:480;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: #f80505;
+}
+
+.deleteButton:hover{
+    background-color: #cd0909;
+    color: rgb(255, 255, 255);
+    font-weight:480;
+} 

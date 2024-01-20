@@ -58,7 +58,7 @@ namespace Sport_System.Application.Services
 
                 await _tournamentRepository.AddTournament(tournament);
 
-                //assigning the role of TeamOwner to the user
+                //assigning the role of TournamentAdministrator to the user
                 var applicationUser = await _userManager.FindByIdAsync(dto.TournamentAdministratorId);
                 if (applicationUser != null && !await _userManager.IsInRoleAsync(applicationUser, UserRoles.TournamentAdministrator))
                     await _userManager.AddToRoleAsync(applicationUser, UserRoles.TournamentAdministrator);
@@ -74,7 +74,7 @@ namespace Sport_System.Application.Services
             if (tournament != null)
             {
                 await _tournamentRepository.DeleteTournament(tournament);
-                var logo = tournament.ImageUrl;
+                var logo = "../../../FrontEnd/public" + tournament.ImageUrl;
 
                 if (!string.IsNullOrEmpty(tournament.ImageUrl) && File.Exists(logo))
                     File.Delete(logo);
@@ -115,7 +115,7 @@ namespace Sport_System.Application.Services
                     if (string.Equals(tournament.ImageUrl, dto.Logo.FileName))
                         return new ApiResponse(400, "No changes were made to the tournament logo.");
 
-                    string oldPhotoFilePath = tournament.ImageUrl;
+                    string oldPhotoFilePath = "../../../FrontEnd/public" + tournament.ImageUrl;
                     string newPhotoFilePath = await _photoSaver.SavePhoto(dto.Logo);
                     tournament.ImageUrl = newPhotoFilePath;
 

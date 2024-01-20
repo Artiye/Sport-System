@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Sport_System.Domain.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,8 @@ namespace Sport_System.Domain.Models
         public string? ProfileUrl { get; set; }
         public DateTime DateOfBirth { get; set; }
 
+        public ICollection<Team>? Teams { get; set; }
+        public ICollection<Player>? Players { get; set; }
+        public ICollection<Tournament>? Tournaments { get; set; }
     }
 }
