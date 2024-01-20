@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Numerics;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -22,13 +21,12 @@ namespace Sport_System.Domain.Entity
         public int? YearFounded { get; set; }
         public string LogoUrl { get; set; }
         public DateTime Registered_At { get; set; }
+        public ICollection<Player>? Players { get; set; }
+        public ICollection<Tournament>? Tournaments { get; set; }
         public string TeamOwnerId { get; set; }
         public ApplicationUser TeamOwner { get; set; }
         public int SportId { get; set; }
         public Sport Sport { get; set; }
         public string SportName { get; set; }
-
-        public ICollection<Player>? Players { get; set; }
-
     }
 }

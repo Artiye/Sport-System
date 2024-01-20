@@ -105,7 +105,7 @@ namespace Sport_System.Application.Services
                     if (string.Equals(team.LogoUrl, dto.Logo.FileName))
                         return new ApiResponse(400, "No changes were made to the team logo.");
 
-                    string oldPhotoFilePath = team.LogoUrl;
+                    string oldPhotoFilePath = "../../../FrontEnd/public" + team.LogoUrl;
                     string newPhotoFilePath = await _photoSaver.SavePhoto(dto.Logo);
                     team.LogoUrl = newPhotoFilePath;
 
@@ -124,7 +124,7 @@ namespace Sport_System.Application.Services
             if (team != null)
             {
                 await _teamRepository.DeleteTeam(team);
-                var logo = team.LogoUrl;
+                var logo = "../../../FrontEnd/public" + team.LogoUrl;
 
                 if (!string.IsNullOrEmpty(team.LogoUrl) && File.Exists(logo))
                     File.Delete(logo);
@@ -144,6 +144,26 @@ namespace Sport_System.Application.Services
             return teamDTO;
         }
 
+        public async Task<List<GetTeamDTO>> GetTeamsByUserId(string userId)
+        {
+            var teams = await _teamRepository.GetTeamsByUserId(userId);
+            if (teams == null)
+                return null;
+
+            var teamsDTO = _mapper.Map<List<GetTeamDTO>>(teams);
+            return teamsDTO;
+        }
+
+        public async Task<List<GetTeamDTO>> GetTeamsUserPlaysFor(string userId)
+        {
+            var teams = await _teamRepository.GetTeamsUserPlaysFor(userId);
+            if (teams == null)
+                return null;
+
+            var teamsDTO = _mapper.Map<List<GetTeamDTO>>(teams);
+            return teamsDTO;
+        }
+
         public async Task<List<GetTeamDTO>> GetAllTeams()
         {
             var teams = await _teamRepository.GetAllTeams();
@@ -152,6 +172,13 @@ namespace Sport_System.Application.Services
 
             var teamDTOList = _mapper.Map<List<GetTeamDTO>>(teams);
             return teamDTOList;
+        }
+
+        public async Task<List<GetTeamDTO>> GetTeamsByPlayer(int playerId)
+        {
+            var teamsWithPlayer = await _teamRepository.GetTeamsByPlayer(playerId);
+            var teamsDTO = _mapper.Map<List<GetTeamDTO>>(teamsWithPlayer);
+            return teamsDTO;
         }
 
         public async Task<List<GetTeamDTO>> SearchTeams(string searchTerm)

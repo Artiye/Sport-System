@@ -1,0 +1,120 @@
+.the-profile {
+  margin-bottom: 110px;
+}
+
+.custom-header {
+  background-color: #f7f7f7;
+  border: 2px solid #000000;
+  border-radius: 80px 80px 0px 0px;
+  color: #fff;
+  padding: 1px 0;
+  text-align: center;
+  margin: 0px;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 40px;
+  min-height: 160px;
+}
+
+.profile-picture img {
+  background-color: #f7f7f7;
+  border: 3px;
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  padding: 10px;
+  padding-right: 50px;
+}
+ 
+.player_profile-picture img {
+  background-color: #f7f7f7;
+  border: 3px;
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+.the-info {
+  font-size: 16px;
+  margin: 0;
+  color: #000000;
+  overflow: hidden;
+}
+
+.the-info p {
+  margin-bottom: 0;
+}
+
+.nav.nav-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-bottom: none;
+  background-color: #ffffff;
+  padding: 10px 20px 10px 20px;
+  gap: 10px;
+}
+
+.nav.nav-tabs .nav-link{
+  cursor: pointer;
+}
+
+.nav.nav-tabs .nav-link.active{
+  background-color: white;
+  border-top: 1px solid;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-radius: 0px;
+}
+
+.nav.nav-tabs .nav-link.notActive {
+  color: #000000; 
+  background-color: #ebe8e8;
+  border-top: 1px solid;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-radius: 0px;
+}
+
+.tab-pane {
+  font-size: 18px;
+  padding: 20px;
+}
+
+.tab-content {
+  padding-bottom: 20px;
+  background-color: #f7f7f7;
+  border: 2px solid #000000;
+  border-radius: 0px 0px 40px 40px;
+}
+
+.request-button {
+  max-width: 140px;
+  position: relative;
+  background-color: #000000 !important;
+  border: none !important;
+}
+
+@media (max-width: 768px) {
+  .request-button {
+    position: relative;
+    top: auto;
+    right: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .custom-header {
+    padding: 1px 0;
+  }
+}

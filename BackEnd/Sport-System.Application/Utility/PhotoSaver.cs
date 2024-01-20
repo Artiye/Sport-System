@@ -19,13 +19,13 @@ namespace Sport_System.Application.Utility
                 throw new ArgumentException("Invalid photo file.");
 
             string fileName = Guid.NewGuid().ToString() + Path.GetExtension(photoFile.FileName);
-            string filePath = Path.Combine("../Sport-System.Application/Images/", fileName);
+            string filePath = Path.Combine("../../FrontEnd/public/images/", fileName);
 
             using (var stream = new FileStream(filePath, FileMode.Create))
             {
                 await photoFile.CopyToAsync(stream);
             }
-            return "../Sport-System.Application/Images/" + fileName;
+            return "/images/" + fileName;
         }
     }
 }

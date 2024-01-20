@@ -45,19 +45,37 @@ namespace Sport_System.Infrastructure.Repository
 
         public async Task<Team> GetTeamById(int id)
         {
-            var team = await _context.Teams.FirstOrDefaultAsync(p => p.TeamId == id);
+            var team = await _context.Teams
+                .Include(t => t.Players)
+                .Include(t => t.Tournaments)
+                .FirstOrDefaultAsync(p => p.TeamId == id);
             return team;
         }
 
         public async Task<List<Team>> GetTeamsByUserId(string userId)
         {
-            var teams = await _context.Teams.Where(t => t.TeamOwnerId == userId).ToListAsync();
+            var teams = await _context.Teams
+                .Include(t => t.Players)
+                .Include(t => t.Tournaments)
+                .Where(t => t.TeamOwnerId == userId)
+                .ToListAsync();
+            return teams;
+        }
+
+        public async Task<List<Team>> GetTeamsUserPlaysFor(string userId)
+        {
+            var teams = await _context.Teams
+                .Where(t => t.Players.Any(player => player.ApplicationUserId == userId))
+                .ToListAsync();
             return teams;
         }
 
         public async Task<List<Team>> GetAllTeams()
         {
-            List<Team> teams = await _context.Teams.ToListAsync();
+            List<Team> teams = await _context.Teams
+                .Include(t => t.Players)
+                .Include(t => t.Tournaments)
+                .ToListAsync();
             return teams;
         }
 
@@ -66,7 +84,15 @@ namespace Sport_System.Infrastructure.Repository
             var team = await _context.Teams.FirstOrDefaultAsync(t => t.Name == name);
             return team;
         }
-       
+
+        public async Task<List<Team>> GetTeamsByPlayer(int playerId)
+        {
+            var teamsWithPlayer = await _context.Teams
+                .Where(team => team.Players != null && team.Players.Any(player => player.PlayerId == playerId))
+                .ToListAsync();
+            return teamsWithPlayer;
+        }
+
         public async Task<List<Team>> SearchTeams(string searchTerm)
         {
             return await _context.Teams
@@ -79,7 +105,8 @@ namespace Sport_System.Infrastructure.Repository
                     .ToListAsync();
         }
 
-       
+
+
     }
 }
 

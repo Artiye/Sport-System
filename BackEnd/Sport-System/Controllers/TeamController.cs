@@ -49,6 +49,27 @@ namespace Sport_System.Controllers
             return Ok(response);
         }
 
+        [HttpGet("ByUserId/{userId}")]
+        public async Task<IActionResult> GetTeamsByUserId(string userId)
+        {
+            var response = await _teamService.GetTeamsByUserId(userId);
+            return Ok(response);
+        }
+
+        [HttpGet("ThatUserPlaysFor/ByUserId/{userId}")]
+        public async Task<IActionResult> GetTeamsUserPlaysFor(string userId)
+        {
+            var response = await _teamService.GetTeamsUserPlaysFor(userId);
+            return Ok(response);
+        }
+
+        [HttpGet("ByPlayerId/{playerId}")]
+        public async Task<IActionResult> GetTeamsByPlayer(int playerId)
+        {
+            var response = await _teamService.GetTeamsByPlayer(playerId);
+            return Ok(response);
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetAllTeams()
         {

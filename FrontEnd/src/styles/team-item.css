@@ -1,0 +1,96 @@
+.team__container {
+  margin: 0 auto; 
+}
+
+.team__item {
+  border: 1px solid #00000065;
+  padding: 20px;
+  border-radius: 5px;
+  color: black;
+  background-color: #f7f7f7;
+}
+
+.team__item-info span i {
+  color: #f80505;
+  font-size: 19px;
+}
+
+.team__item-btn {
+  display: block;
+  position: relative;
+  border: none;
+  outline: none;
+  background: #000000;
+  padding: 8px 0px;
+  border-radius: 7px;
+}
+
+.team__item-btn:hover {
+  background: #000000;
+  color: #fff;
+}
+
+.team__item-btn a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.team__img {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.team__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.team__item-content h4 {
+  font-size: 29px;
+}
+
+.team__item-content h6 {
+  font-size: 19px;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 992px) {
+  .team__item h4 {
+    font-size: 17px;
+    margin-bottom: 0;
+  }
+
+  .team__item h6 {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  .team__item-info {
+    flex-wrap: wrap;
+  }
+
+  .team__item-info span {
+    font-size: 13px;
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .team__item h4 {
+    font-size: 16px;
+  }
+
+  .team__item h6 {
+    font-size: 15px;
+  }
+
+  .team__item-info span {
+    font-size: 14px;
+  }
+
+  .team__item-info span i {
+    font-size: 16px;
+  }
+}

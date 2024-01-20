@@ -15,7 +15,6 @@ namespace Sport_System.Domain.Models
         public string ImageUrl { get; set; }
         public string? Location { get; set; }
         public string? Rules { get; set; }
-        public int? BracketId { get; set; }
         public ICollection<Team>? Teams { get; set; }
         public string TournamentAdministratorId { get; set; }
         public ApplicationUser TournamentAdministrator { get; set; }
