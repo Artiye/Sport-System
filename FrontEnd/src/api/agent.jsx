@@ -38,12 +38,25 @@ const Sport = {
     getAllSports: () => requests.get('Sport'),
     getSportById: (sportId) => requests.get(`Sport/${sportId}`),
 };
+const Tournament = {
+    getTournamentById: (tournamentId) => requests.get(`Tournament/${tournamentId}`),
+    getAllTournaments: () => requests.get('Tournament'),
+    getTournamentsByUserId: (userId) => requests.get(`Tournament/ByUserId/${userId}`),
+    addTournament: (tournamentData) => requests.post('Tournament', tournamentData),
+    editTournament: (tournamentData) => requests.put('Tournament', tournamentData),
+    editTournamentLogo: (tournamentData) => requests.put('Tournament/TournamentLogo', tournamentData),
+    deleteTournament: (tournamentId) => requests.delete(`Tournament/${tournamentId}`),
+    addTeamToTournament: (tournamentId, teamId) => requests.put(`Tournament/AddTeam?tournamentId=${tournamentId}&teamId=${teamId}`),
+    removeTeamFromTournament: (tournamentId, teamId) => requests.put(`Tournament/RemoveTeam?tournamentId=${tournamentId}&teamId=${teamId}`),
+    SearchTournaments: (searchTerm) => requests.get(`Tournament/SearchTournaments/${searchTerm}`),
+};
 
 const agent = {
     Identity,
     User,
     Team,
     Sport,
+    Tournament,
 }
 
 export default agent;
