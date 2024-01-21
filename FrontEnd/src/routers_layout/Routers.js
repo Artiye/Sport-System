@@ -9,6 +9,10 @@ import MyTeams from "../pages/TeamPages/MyTeams";
 import TeamDetails from "../pages/TeamPages/TeamDetails";
 import AddTeam from "../pages/TeamPages/AddTeam"; 
 import AllTeams from "../pages/TeamPages/AllTeams";
+import AddTournament from "../pages/TournamentPages/AddTournament";
+import TournamentDetails from "../pages/TournamentPages/TournamentDetails";
+import TournamentsList from "../pages/TournamentPages/TournamentsList";
+import TournamentsByUser from "../pages/TournamentPages/TournamentsByUser";
 
 const Routers = () => {
   const navigate = useNavigate();
@@ -28,6 +32,10 @@ const Routers = () => {
       <Route path="/teams/:teamId" element={<TeamDetails />} />
       <Route path="/add-team" element={<AddTeam />} />
       <Route path="/all-teams" element={<AllTeams />} />
+      <Route path="/my-tournaments" element={<TournamentsByUser />} />
+      <Route path="/tournaments" element={<TournamentsList />} />
+      <Route path="/add-tournament" element={<AddTournament />} />
+      <Route path="/tournament/:tournamentId" element={<TournamentDetails />} />
     </Routes>
   );
 };
