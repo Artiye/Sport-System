@@ -27,5 +27,10 @@ namespace Sport_System.Controllers
             return Ok(user);
         }
 
+        [HttpGet("GetAllUsers")]
+        public async Task<ActionResult<List<GetUserDto>>> GetAllUsers()
+        {
+            return await _identityUserService.GetAllUsersAsync();
+        }
     }
 }

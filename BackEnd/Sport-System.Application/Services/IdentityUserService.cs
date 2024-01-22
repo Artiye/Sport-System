@@ -33,9 +33,25 @@ namespace Sport_System.Application.Services
             var dto = _mapper.Map<GetUserDto>(user);
             dto.Roles = (await _userManager.GetRolesAsync(user)).ToList();
 
-
             return dto;
         }
+
+        public async Task<List<GetUserDto>> GetAllUsersAsync()
+        {
+            var users = await _userManager.Users.ToListAsync();
+            var result = _mapper.Map<List<GetUserDto>>(users);
+
+            foreach (var userDto in result)
+            {
+                var user = users.FirstOrDefault(u => u.Id == userDto.Id);
+                if (user != null)
+                {
+                    userDto.Roles = (await _userManager.GetRolesAsync(user)).ToList();
+                }
+            }
+            return result;
+        }
+
 
     }
 }

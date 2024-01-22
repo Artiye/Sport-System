@@ -13,6 +13,8 @@ import AddTournament from "../pages/TournamentPages/AddTournament";
 import TournamentDetails from "../pages/TournamentPages/TournamentDetails";
 import TournamentsList from "../pages/TournamentPages/TournamentsList";
 import TournamentsByUser from "../pages/TournamentPages/TournamentsByUser";
+import AllPlayers from "../pages/PlayerPages/AllPlayers";
+import PlayerDetails from "../pages/PlayerPages/PlayerDetails";
 
 const Routers = () => {
   const navigate = useNavigate();
@@ -36,6 +38,8 @@ const Routers = () => {
       <Route path="/tournaments" element={<TournamentsList />} />
       <Route path="/add-tournament" element={<AddTournament />} />
       <Route path="/tournament/:tournamentId" element={<TournamentDetails />} />
+      <Route path="/all-players" element={<AllPlayers />} />  
+      <Route path="/player/:applicationUserId" element={<PlayerDetails />} />  
     </Routes>
   );
 };
