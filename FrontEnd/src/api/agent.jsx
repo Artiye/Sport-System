@@ -19,6 +19,7 @@ const Identity = {
 
 const User = {
     getUserById: (userId) => requests.get(`UserManagment/GetUserById/${userId}`),
+    getAllUsers: () => requests.get('UserManagment/GetAllUsers'),
 };
 
 const Team = {
@@ -51,12 +52,23 @@ const Tournament = {
     SearchTournaments: (searchTerm) => requests.get(`Tournament/SearchTournaments/${searchTerm}`),
 };
 
+const Player = {
+    addPlayer: (playerData) => requests.post('Player/AddPlayer', playerData),
+    updatePlayer: (playerData) => requests.put('Player', playerData),
+    deletePlayer: (playerId) => requests.delete(`Player/?id=${playerId}`),
+    getPlayerById: (playerId) => requests.get(`Player/GetPlayerById/${playerId}`),
+    getPlayerByUser: (userId) => requests.get(`Player/PlayerByUser/${userId}`),
+    getAllPlayers: () => requests.get('Player/GetAllPlayers'),
+    getPlayersByTeam: (teamId) => requests.get(`Player/PlayersByTeam/${teamId}`),
+};
+
 const agent = {
     Identity,
     User,
     Team,
     Sport,
     Tournament,
+    Player,
 }
 
 export default agent;

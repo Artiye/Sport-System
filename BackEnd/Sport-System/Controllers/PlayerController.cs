@@ -64,9 +64,5 @@ namespace SportsManagementSystem.WebApi.Controllers
             return Ok(response);
         }
 
-
-
-
-
     }
 }

@@ -4,6 +4,7 @@ import TeamSettings from "./TeamSettings";
 import agent from "../../api/agent";
 import { useParams } from "react-router-dom";
 import TeamTournaments from "./TeamTournaments";
+import TeamPlayers from "./TeamPlayers";
 
 const TeamDetailsForm = () => {
     const { teamId } = useParams();
@@ -11,6 +12,7 @@ const TeamDetailsForm = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [activeTab, setActiveTab] = useState("players");
+
     const userId = localStorage.getItem('userId');
 
     const fetchTeam = async () => {
@@ -37,6 +39,10 @@ const TeamDetailsForm = () => {
       console.log('Loading...');
       return <div>Loading...</div>;
     }
+
+    const showPlayers = () => {
+        setActiveTab("players");
+    };
   
     const showTournaments = () => {
         setActiveTab("tournaments");
@@ -63,6 +69,10 @@ const TeamDetailsForm = () => {
             </header>
         
             <nav className="nav nav-tabs">
+                <a className={`nav-link ${activeTab === "players" ? "active" : "notActive"}`} onClick={showPlayers}>
+                    Players
+                </a>
+
                 <a className={`nav-link ${activeTab === "tournaments" ? "active" : "notActive"}`} onClick={showTournaments} >
                     Tournaments
                 </a>
@@ -75,6 +85,10 @@ const TeamDetailsForm = () => {
             </nav>
         
             <div className="tab-content">   
+                {activeTab === "players" && (
+                    <TeamPlayers team={team} players={team.players} fetchTeam={fetchTeam} />
+                )}
+
                 {activeTab === "tournaments" && (
                     <TeamTournaments tournaments={team.tournaments} />
                 )}

@@ -1,0 +1,94 @@
+.player__container {
+  margin: 0 auto;
+}
+
+.player__item {
+  border: 1px solid #00000065;
+  padding: 20px;
+  border-radius: 5px;
+  color: black;
+  background-color: #f7f7f7;
+}
+
+.player__item-info span i {
+  color: #f80505;
+  font-size: 19px;
+}
+
+.player__item-btn {
+  display: block;
+  position: relative;
+  border: none;
+  outline: none;
+  background: #000000;
+  padding: 8px 0px;
+  border-radius: 7px;
+}
+
+.player__item-btn:hover {
+  background: #000000;
+  color: #fff;
+}
+
+.player__item-btn a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.player__img {
+  margin: auto;
+  width: auto;
+  max-width: 160px;
+  height: 160px;
+  overflow: hidden;
+}
+
+.player__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.player__item-content h5 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 992px) {
+  .player__item h4 {
+    font-size: 17px;
+    margin-bottom: 0;
+  }
+
+  .player__item h6 {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  .player__item-info {
+    flex-wrap: wrap;
+  }
+
+  .player__item-info span {
+    font-size: 13px;
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .player__item h4 {
+    font-size: 16px;
+  }
+
+  .player__item h6 {
+    font-size: 15px;
+  }
+
+  .player__item-info span {
+    font-size: 14px;
+  }
+
+  .player__item-info span i {
+    font-size: 16px;
+  }
+}
