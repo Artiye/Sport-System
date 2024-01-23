@@ -16,6 +16,9 @@ import TournamentsList from "../pages/TournamentPages/TournamentsList";
 import TournamentsByUser from "../pages/TournamentPages/TournamentsByUser";
 import AllPlayers from "../pages/PlayerPages/AllPlayers";
 import PlayerDetails from "../pages/PlayerPages/PlayerDetails";
+import Home from "../pages/Home";
+import About from "../pages/About";
+
 
 const Routers = () => {
   const navigate = useNavigate();
@@ -26,6 +29,8 @@ const Routers = () => {
 
   return (
     <Routes>   
+       <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />   
       <Route path="*" element={<NotFound />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
