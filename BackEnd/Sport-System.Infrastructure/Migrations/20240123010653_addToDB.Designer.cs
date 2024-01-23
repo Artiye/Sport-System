@@ -12,7 +12,7 @@ using Sports_System.Infrastructure.Data;
 namespace Sport_System.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240120025344_addToDB")]
+    [Migration("20240123010653_addToDB")]
     partial class addToDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,35 +54,35 @@ namespace Sport_System.Infrastructure.Migrations
                         new
                         {
                             Id = "adminRoleId1293931239438254523",
-                            ConcurrencyStamp = "d7def3ba-0c69-48cc-9153-e42a3a0edcdf",
+                            ConcurrencyStamp = "c30d1383-ac8b-4a1c-a7bb-05b95e27c8f7",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "userRoleId23094852091092347944",
-                            ConcurrencyStamp = "fa927cce-5d7c-437c-be42-a2ae2c65cd1e",
+                            ConcurrencyStamp = "ad772ae9-5932-490e-878b-c30d1ec1ca32",
                             Name = "RegisteredUser",
                             NormalizedName = "REGISTEREDUSER"
                         },
                         new
                         {
                             Id = "teamOwnerRoleId23453453451092312341",
-                            ConcurrencyStamp = "9de8e2c7-9c11-4d1a-b327-9bd4cb96c017",
+                            ConcurrencyStamp = "3418f935-9fa2-401b-849c-14817f1d0463",
                             Name = "TeamOwner",
                             NormalizedName = "TEAMOWNER"
                         },
                         new
                         {
                             Id = "playerRoleId2345123412339234794",
-                            ConcurrencyStamp = "3e291984-4d81-4754-a2a8-dbea6b9b9582",
+                            ConcurrencyStamp = "06a0c669-2e2e-468f-8855-c1da527fadbd",
                             Name = "Player",
                             NormalizedName = "PLAYER"
                         },
                         new
                         {
                             Id = "tournamentAdministratorRoleId2345334566",
-                            ConcurrencyStamp = "2ecece4a-55b7-4f06-9847-769905bafba0",
+                            ConcurrencyStamp = "396fba6b-02de-4ab9-9be4-1333ababcdc2",
                             Name = "TournamentAdministrator",
                             NormalizedName = "TOURNAMENTADMINISTRATOR"
                         });
@@ -244,6 +244,38 @@ namespace Sport_System.Infrastructure.Migrations
                     b.HasIndex("TeamId");
 
                     b.ToTable("Players");
+
+                    b.HasData(
+                        new
+                        {
+                            PlayerId = 1,
+                            ApplicationUserId = "kajtazbacaj542225",
+                            JerseyNumber = 11,
+                            Position = "Striker",
+                            Registered_At = new DateTime(2024, 1, 23, 2, 6, 53, 429, DateTimeKind.Local).AddTicks(381),
+                            SportId = 3,
+                            TeamId = 4
+                        },
+                        new
+                        {
+                            PlayerId = 2,
+                            ApplicationUserId = "flamurraci542225",
+                            JerseyNumber = 24,
+                            Position = "Defender",
+                            Registered_At = new DateTime(2024, 1, 23, 2, 6, 53, 429, DateTimeKind.Local).AddTicks(417),
+                            SportId = 3,
+                            TeamId = 4
+                        },
+                        new
+                        {
+                            PlayerId = 3,
+                            ApplicationUserId = "artmorina542225",
+                            JerseyNumber = 23,
+                            Position = "Midfielder",
+                            Registered_At = new DateTime(2024, 1, 23, 2, 6, 53, 429, DateTimeKind.Local).AddTicks(421),
+                            SportId = 3,
+                            TeamId = 3
+                        });
                 });
 
             modelBuilder.Entity("Sport_System.Domain.Entity.Team", b =>
@@ -295,6 +327,63 @@ namespace Sport_System.Infrastructure.Migrations
                     b.HasIndex("TeamOwnerId");
 
                     b.ToTable("Teams");
+
+                    b.HasData(
+                        new
+                        {
+                            TeamId = 1,
+                            Description = "Spanish Football Team.",
+                            LogoUrl = "/images/fcbarcelona.png",
+                            Name = "FC Barcelona",
+                            Registered_At = new DateTime(2024, 1, 23, 1, 6, 53, 429, DateTimeKind.Utc).AddTicks(683),
+                            SportId = 1,
+                            SportName = "Football",
+                            TeamOwnerId = "flamurraci542225"
+                        },
+                        new
+                        {
+                            TeamId = 2,
+                            Description = "Italian Football Team",
+                            LogoUrl = "/images/milan.png",
+                            Name = "AC Milan",
+                            Registered_At = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SportId = 1,
+                            SportName = "Football",
+                            TeamOwnerId = "kajtazbacaj542225"
+                        },
+                        new
+                        {
+                            TeamId = 3,
+                            Description = "Spanish Football Team",
+                            LogoUrl = "/images/realmadrid.png",
+                            Name = "Real Madrid",
+                            Registered_At = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SportId = 1,
+                            SportName = "Football",
+                            TeamOwnerId = "kajtazbacaj542225"
+                        },
+                        new
+                        {
+                            TeamId = 4,
+                            Description = "English Football Team",
+                            LogoUrl = "/images/chelsea.png",
+                            Name = "Chelsea FC",
+                            Registered_At = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SportId = 1,
+                            SportName = "Football",
+                            TeamOwnerId = "artmorina542225"
+                        },
+                        new
+                        {
+                            TeamId = 5,
+                            Description = "NBA Team",
+                            LogoUrl = "/images/lakers.png",
+                            Name = "LA Lakers",
+                            Registered_At = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SportId = 2,
+                            SportName = "Basketball",
+                            TeamOwnerId = "artmorina542225"
+                        });
                 });
 
             modelBuilder.Entity("Sport_System.Domain.Models.ApplicationUser", b =>
@@ -386,22 +475,85 @@ namespace Sport_System.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "adminuser11234980723452903459235",
+                            Id = "kajtazbacaj542225",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "da8414f1-32de-4eef-9285-83f267c1eb11",
+                            ConcurrencyStamp = "e91c97a3-41cd-48f9-a581-8774b91a86c0",
                             DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "kbacaj5@gmail.com",
+                            EmailConfirmed = false,
+                            FirstName = "Kajtaz",
+                            Gender = "Male",
+                            LastName = "Bacaj",
+                            LockoutEnabled = false,
+                            Nationality = "Albanian",
+                            NormalizedEmail = "KBACAJ5@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGwHnMELjXf5RTLNys4hfYpFGj7QDtZafB66y15qQ+jfagTygtWVnkEMb6EbMJHa4g==",
+                            PhoneNumberConfirmed = false,
+                            ProfileUrl = "/images/profilepicture3.png",
+                            SecurityStamp = "34c0499f-b21c-4d23-97ee-c5cc0e95f716",
+                            TwoFactorEnabled = false,
+                            UserName = "KajtazBacaj"
+                        },
+                        new
+                        {
+                            Id = "flamurraci542225",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "aa6f2cf5-5ebc-44ed-9169-f48d7665457b",
+                            DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "flamurraci@gmail.com",
+                            EmailConfirmed = false,
+                            FirstName = "Flamur",
+                            Gender = "Male",
+                            LastName = "Raci",
+                            LockoutEnabled = false,
+                            Nationality = "Albanian",
+                            NormalizedEmail = "FLAMURRACI@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDD496Tl3ft0v14M17UvvW2Us93y3mxvly/M8jUUp2afIa1Bqh3q7ZLlOri2iamriw==",
+                            PhoneNumberConfirmed = false,
+                            ProfileUrl = "/images/profilepicture2.png",
+                            SecurityStamp = "da72f861-ce23-403c-b310-099f88261935",
+                            TwoFactorEnabled = false,
+                            UserName = "FlamurRaci"
+                        },
+                        new
+                        {
+                            Id = "artmorina542225",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "5675fe1f-f78e-4c50-9c63-22da7ff98f33",
+                            DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "artmorina@gmail.com",
+                            EmailConfirmed = false,
+                            FirstName = "Art",
+                            Gender = "Male",
+                            LastName = "Morina",
+                            LockoutEnabled = false,
+                            Nationality = "Albanian",
+                            NormalizedEmail = "ARTMORINA@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEP2GL9mWgptKUjvQx5PC2+2eyX0ZknYvIdPgZq8baGVwrMLZtitA4fpagbFs/veXWA==",
+                            PhoneNumberConfirmed = false,
+                            ProfileUrl = "/images/profilepicture4.png",
+                            SecurityStamp = "1233312d-71d3-459f-8f91-660767c829ef",
+                            TwoFactorEnabled = false,
+                            UserName = "ArtMorina"
+                        },
+                        new
+                        {
+                            Id = "adminuser11234980723452903459235",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "ec367015-e77c-49d6-b079-d553663704ed",
+                            DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
                             Gender = "Male",
                             LastName = "User",
                             LockoutEnabled = false,
                             Nationality = "Albanian",
-                            NormalizedEmail = "KBACAJ5@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOrsobCFkeKfZSQ4Hj6sS4NK3OH2fgWMivcsKkW/GgHMK6BECtVycfamXWhtM7I+eA==",
+                            NormalizedEmail = "ADMIN@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAELRZdfzrLIkBDNgzQmu7STetz+7+5Cx5hGfUVodzGKV+Z5N+A+fFJCr4lU9Mkr4VIQ==",
                             PhoneNumberConfirmed = false,
                             ProfileUrl = "/images/profilepicture.jpg",
-                            SecurityStamp = "92ec5516-e669-432e-b511-bce7de834ee8",
+                            SecurityStamp = "ef363e16-e9dc-49d6-8b2a-1129cc3f4f27",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
@@ -409,7 +561,7 @@ namespace Sport_System.Infrastructure.Migrations
                         {
                             Id = "defaultuser11234980723452903459235",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "41ad92eb-4275-4763-9372-a02e44f2f6ee",
+                            ConcurrencyStamp = "6c9e278e-3a33-4c98-ad53-36c91530da10",
                             DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "user@gmail.com",
                             EmailConfirmed = false,
@@ -419,10 +571,10 @@ namespace Sport_System.Infrastructure.Migrations
                             LockoutEnabled = false,
                             Nationality = "Albanian",
                             NormalizedEmail = "USER@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAECewDsHqh3Yefdq6LDSBBaaaBpsGkjho1xGahrG18wrywOTD7IDZFnXzl5GGinokVg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEE94mQXSah8Q0XTp5gFA6JwmkjZAyJFp5GX0Krju+L7zPXrH5898eWO1FkojTnPhBw==",
                             PhoneNumberConfirmed = false,
-                            ProfileUrl = "/images/profilepicture.jpg",
-                            SecurityStamp = "9cac8b74-d34e-4ad9-b125-b17da867c3a4",
+                            ProfileUrl = "/images/profilepicturedefault.jpg",
+                            SecurityStamp = "6f5f02f8-8e76-4e7a-8ea1-af88e3f5dda2",
                             TwoFactorEnabled = false,
                             UserName = "defaultUser"
                         });
@@ -447,6 +599,116 @@ namespace Sport_System.Infrastructure.Migrations
                     b.HasKey("SportId");
 
                     b.ToTable("Sports");
+
+                    b.HasData(
+                        new
+                        {
+                            SportId = 1,
+                            Description = "Sport",
+                            Name = "Football"
+                        },
+                        new
+                        {
+                            SportId = 2,
+                            Description = "Sport",
+                            Name = "Basketball"
+                        },
+                        new
+                        {
+                            SportId = 3,
+                            Description = "Sport",
+                            Name = "Volleyball"
+                        },
+                        new
+                        {
+                            SportId = 4,
+                            Description = "Sport",
+                            Name = "Mixed Martial Arts"
+                        },
+                        new
+                        {
+                            SportId = 5,
+                            Description = "Sport",
+                            Name = "Swimming"
+                        },
+                        new
+                        {
+                            SportId = 6,
+                            Description = "Sport",
+                            Name = "Volleyball"
+                        },
+                        new
+                        {
+                            SportId = 7,
+                            Description = "Sport",
+                            Name = "Boxing"
+                        },
+                        new
+                        {
+                            SportId = 8,
+                            Description = "Sport",
+                            Name = "Baseball"
+                        },
+                        new
+                        {
+                            SportId = 9,
+                            Description = "Sport",
+                            Name = "Golf"
+                        },
+                        new
+                        {
+                            SportId = 10,
+                            Description = "Sport",
+                            Name = "Hockey"
+                        },
+                        new
+                        {
+                            SportId = 11,
+                            Description = "Sport",
+                            Name = "Skiing"
+                        },
+                        new
+                        {
+                            SportId = 12,
+                            Description = "Sport",
+                            Name = "American Football"
+                        },
+                        new
+                        {
+                            SportId = 13,
+                            Description = "Sport",
+                            Name = "Bowling"
+                        },
+                        new
+                        {
+                            SportId = 14,
+                            Description = "Sport",
+                            Name = "Skating"
+                        },
+                        new
+                        {
+                            SportId = 15,
+                            Description = "Sport",
+                            Name = "Judo"
+                        },
+                        new
+                        {
+                            SportId = 16,
+                            Description = "Sport",
+                            Name = "Kickboxing"
+                        },
+                        new
+                        {
+                            SportId = 17,
+                            Description = "Sport",
+                            Name = "Hockey"
+                        },
+                        new
+                        {
+                            SportId = 18,
+                            Description = "Sport",
+                            Name = "Wrestrling"
+                        });
                 });
 
             modelBuilder.Entity("Sport_System.Domain.Models.Tournament", b =>
@@ -492,6 +754,58 @@ namespace Sport_System.Infrastructure.Migrations
                     b.HasIndex("TournamentAdministratorId");
 
                     b.ToTable("Tournaments");
+
+                    b.HasData(
+                        new
+                        {
+                            TournamentId = 1,
+                            Description = "Europian Clubs Competition.",
+                            ImageUrl = "/images/champions.png",
+                            Name = "Champions League",
+                            SportId = 1,
+                            SportName = "Football",
+                            TournamentAdministratorId = "artmorina542225"
+                        },
+                        new
+                        {
+                            TournamentId = 2,
+                            Description = "Europian Clubs Competition.",
+                            ImageUrl = "/images/europian.png",
+                            Name = "Europa League",
+                            SportId = 1,
+                            SportName = "Football",
+                            TournamentAdministratorId = "artmorina542225"
+                        },
+                        new
+                        {
+                            TournamentId = 3,
+                            Description = "Europian Clubs Competition.",
+                            ImageUrl = "/images/ligakosoves.png",
+                            Name = "Liga e Kosoves",
+                            SportId = 1,
+                            SportName = "Football",
+                            TournamentAdministratorId = "kajtazbacaj542225"
+                        },
+                        new
+                        {
+                            TournamentId = 4,
+                            Description = "NBA Teams compete of Glory.",
+                            ImageUrl = "/images/nbaplayoffs.png",
+                            Name = "NBA Play-Offs",
+                            SportId = 2,
+                            SportName = "Basketball",
+                            TournamentAdministratorId = "kajtazbacaj542225"
+                        },
+                        new
+                        {
+                            TournamentId = 5,
+                            Description = "Europian Clubs Compete.",
+                            ImageUrl = "/images/europeconference.png",
+                            Name = "Europa Conference League",
+                            SportId = 1,
+                            SportName = "Football",
+                            TournamentAdministratorId = "flamurraci542225"
+                        });
                 });
 
             modelBuilder.Entity("TeamTournament", b =>

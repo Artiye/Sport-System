@@ -300,11 +300,11 @@ namespace Sport_System.Infrastructure.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "adminRoleId1293931239438254523", "d7def3ba-0c69-48cc-9153-e42a3a0edcdf", "Admin", "ADMIN" },
-                    { "playerRoleId2345123412339234794", "3e291984-4d81-4754-a2a8-dbea6b9b9582", "Player", "PLAYER" },
-                    { "teamOwnerRoleId23453453451092312341", "9de8e2c7-9c11-4d1a-b327-9bd4cb96c017", "TeamOwner", "TEAMOWNER" },
-                    { "tournamentAdministratorRoleId2345334566", "2ecece4a-55b7-4f06-9847-769905bafba0", "TournamentAdministrator", "TOURNAMENTADMINISTRATOR" },
-                    { "userRoleId23094852091092347944", "fa927cce-5d7c-437c-be42-a2ae2c65cd1e", "RegisteredUser", "REGISTEREDUSER" }
+                    { "adminRoleId1293931239438254523", "c30d1383-ac8b-4a1c-a7bb-05b95e27c8f7", "Admin", "ADMIN" },
+                    { "playerRoleId2345123412339234794", "06a0c669-2e2e-468f-8855-c1da527fadbd", "Player", "PLAYER" },
+                    { "teamOwnerRoleId23453453451092312341", "3418f935-9fa2-401b-849c-14817f1d0463", "TeamOwner", "TEAMOWNER" },
+                    { "tournamentAdministratorRoleId2345334566", "396fba6b-02de-4ab9-9be4-1333ababcdc2", "TournamentAdministrator", "TOURNAMENTADMINISTRATOR" },
+                    { "userRoleId23094852091092347944", "ad772ae9-5932-490e-878b-c30d1ec1ca32", "RegisteredUser", "REGISTEREDUSER" }
                 });
 
             migrationBuilder.InsertData(
@@ -312,19 +312,85 @@ namespace Sport_System.Infrastructure.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "DateOfBirth", "Email", "EmailConfirmed", "FirstName", "Gender", "LastName", "LockoutEnabled", "LockoutEnd", "Nationality", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfileUrl", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "adminuser11234980723452903459235", 0, "da8414f1-32de-4eef-9285-83f267c1eb11", new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "kbacaj5@gmail.com", false, "Admin", "Male", "User", false, null, "Albanian", "KBACAJ5@GMAIL.COM", null, "AQAAAAEAACcQAAAAEOrsobCFkeKfZSQ4Hj6sS4NK3OH2fgWMivcsKkW/GgHMK6BECtVycfamXWhtM7I+eA==", null, false, "/images/profilepicture.jpg", "92ec5516-e669-432e-b511-bce7de834ee8", false, "admin" },
-                    { "defaultuser11234980723452903459235", 0, "41ad92eb-4275-4763-9372-a02e44f2f6ee", new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "user@gmail.com", false, "Default", "Male", "User", false, null, "Albanian", "USER@GMAIL.COM", null, "AQAAAAEAACcQAAAAECewDsHqh3Yefdq6LDSBBaaaBpsGkjho1xGahrG18wrywOTD7IDZFnXzl5GGinokVg==", null, false, "/images/profilepicture.jpg", "9cac8b74-d34e-4ad9-b125-b17da867c3a4", false, "defaultUser" }
+                    { "adminuser11234980723452903459235", 0, "ec367015-e77c-49d6-b079-d553663704ed", new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "admin@gmail.com", false, "Admin", "Male", "User", false, null, "Albanian", "ADMIN@GMAIL.COM", null, "AQAAAAEAACcQAAAAELRZdfzrLIkBDNgzQmu7STetz+7+5Cx5hGfUVodzGKV+Z5N+A+fFJCr4lU9Mkr4VIQ==", null, false, "/images/profilepicture.jpg", "ef363e16-e9dc-49d6-8b2a-1129cc3f4f27", false, "admin" },
+                    { "artmorina542225", 0, "5675fe1f-f78e-4c50-9c63-22da7ff98f33", new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "artmorina@gmail.com", false, "Art", "Male", "Morina", false, null, "Albanian", "ARTMORINA@GMAIL.COM", null, "AQAAAAEAACcQAAAAEP2GL9mWgptKUjvQx5PC2+2eyX0ZknYvIdPgZq8baGVwrMLZtitA4fpagbFs/veXWA==", null, false, "/images/profilepicture4.png", "1233312d-71d3-459f-8f91-660767c829ef", false, "ArtMorina" },
+                    { "defaultuser11234980723452903459235", 0, "6c9e278e-3a33-4c98-ad53-36c91530da10", new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "user@gmail.com", false, "Default", "Male", "User", false, null, "Albanian", "USER@GMAIL.COM", null, "AQAAAAEAACcQAAAAEE94mQXSah8Q0XTp5gFA6JwmkjZAyJFp5GX0Krju+L7zPXrH5898eWO1FkojTnPhBw==", null, false, "/images/profilepicturedefault.jpg", "6f5f02f8-8e76-4e7a-8ea1-af88e3f5dda2", false, "defaultUser" },
+                    { "flamurraci542225", 0, "aa6f2cf5-5ebc-44ed-9169-f48d7665457b", new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "flamurraci@gmail.com", false, "Flamur", "Male", "Raci", false, null, "Albanian", "FLAMURRACI@GMAIL.COM", null, "AQAAAAEAACcQAAAAEDD496Tl3ft0v14M17UvvW2Us93y3mxvly/M8jUUp2afIa1Bqh3q7ZLlOri2iamriw==", null, false, "/images/profilepicture2.png", "da72f861-ce23-403c-b310-099f88261935", false, "FlamurRaci" },
+                    { "kajtazbacaj542225", 0, "e91c97a3-41cd-48f9-a581-8774b91a86c0", new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "kbacaj5@gmail.com", false, "Kajtaz", "Male", "Bacaj", false, null, "Albanian", "KBACAJ5@GMAIL.COM", null, "AQAAAAEAACcQAAAAEGwHnMELjXf5RTLNys4hfYpFGj7QDtZafB66y15qQ+jfagTygtWVnkEMb6EbMJHa4g==", null, false, "/images/profilepicture3.png", "34c0499f-b21c-4d23-97ee-c5cc0e95f716", false, "KajtazBacaj" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Sports",
+                columns: new[] { "SportId", "Description", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Sport", "Football" },
+                    { 2, "Sport", "Basketball" },
+                    { 3, "Sport", "Volleyball" },
+                    { 4, "Sport", "Mixed Martial Arts" },
+                    { 5, "Sport", "Swimming" },
+                    { 6, "Sport", "Volleyball" },
+                    { 7, "Sport", "Boxing" },
+                    { 8, "Sport", "Baseball" },
+                    { 9, "Sport", "Golf" },
+                    { 10, "Sport", "Hockey" },
+                    { 11, "Sport", "Skiing" },
+                    { 12, "Sport", "American Football" },
+                    { 13, "Sport", "Bowling" },
+                    { 14, "Sport", "Skating" },
+                    { 15, "Sport", "Judo" },
+                    { 16, "Sport", "Kickboxing" },
+                    { 17, "Sport", "Hockey" },
+                    { 18, "Sport", "Wrestrling" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "adminRoleId1293931239438254523", "adminuser11234980723452903459235" });
+                values: new object[,]
+                {
+                    { "adminRoleId1293931239438254523", "adminuser11234980723452903459235" },
+                    { "userRoleId23094852091092347944", "defaultuser11234980723452903459235" }
+                });
 
             migrationBuilder.InsertData(
-                table: "AspNetUserRoles",
-                columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "userRoleId23094852091092347944", "defaultuser11234980723452903459235" });
+                table: "Teams",
+                columns: new[] { "TeamId", "Description", "Location", "LogoUrl", "Name", "Registered_At", "ShortName", "SportId", "SportName", "TeamOwnerId", "YearFounded" },
+                values: new object[,]
+                {
+                    { 1, "Spanish Football Team.", null, "/images/fcbarcelona.png", "FC Barcelona", new DateTime(2024, 1, 23, 1, 6, 53, 429, DateTimeKind.Utc).AddTicks(683), null, 1, "Football", "flamurraci542225", null },
+                    { 2, "Italian Football Team", null, "/images/milan.png", "AC Milan", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 1, "Football", "kajtazbacaj542225", null },
+                    { 3, "Spanish Football Team", null, "/images/realmadrid.png", "Real Madrid", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 1, "Football", "kajtazbacaj542225", null },
+                    { 4, "English Football Team", null, "/images/chelsea.png", "Chelsea FC", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 1, "Football", "artmorina542225", null },
+                    { 5, "NBA Team", null, "/images/lakers.png", "LA Lakers", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 2, "Basketball", "artmorina542225", null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Tournaments",
+                columns: new[] { "TournamentId", "Description", "ImageUrl", "Location", "Name", "Rules", "SportId", "SportName", "TournamentAdministratorId" },
+                values: new object[,]
+                {
+                    { 1, "Europian Clubs Competition.", "/images/champions.png", null, "Champions League", null, 1, "Football", "artmorina542225" },
+                    { 2, "Europian Clubs Competition.", "/images/europian.png", null, "Europa League", null, 1, "Football", "artmorina542225" },
+                    { 3, "Europian Clubs Competition.", "/images/ligakosoves.png", null, "Liga e Kosoves", null, 1, "Football", "kajtazbacaj542225" },
+                    { 4, "NBA Teams compete of Glory.", "/images/nbaplayoffs.png", null, "NBA Play-Offs", null, 2, "Basketball", "kajtazbacaj542225" },
+                    { 5, "Europian Clubs Compete.", "/images/europeconference.png", null, "Europa Conference League", null, 1, "Football", "flamurraci542225" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Players",
+                columns: new[] { "PlayerId", "ApplicationUserId", "JerseyNumber", "Position", "Registered_At", "SportId", "TeamId" },
+                values: new object[] { 1, "kajtazbacaj542225", 11, "Striker", new DateTime(2024, 1, 23, 2, 6, 53, 429, DateTimeKind.Local).AddTicks(381), 3, 4 });
+
+            migrationBuilder.InsertData(
+                table: "Players",
+                columns: new[] { "PlayerId", "ApplicationUserId", "JerseyNumber", "Position", "Registered_At", "SportId", "TeamId" },
+                values: new object[] { 2, "flamurraci542225", 24, "Defender", new DateTime(2024, 1, 23, 2, 6, 53, 429, DateTimeKind.Local).AddTicks(417), 3, 4 });
+
+            migrationBuilder.InsertData(
+                table: "Players",
+                columns: new[] { "PlayerId", "ApplicationUserId", "JerseyNumber", "Position", "Registered_At", "SportId", "TeamId" },
+                values: new object[] { 3, "artmorina542225", 23, "Midfielder", new DateTime(2024, 1, 23, 2, 6, 53, 429, DateTimeKind.Local).AddTicks(421), 3, 3 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
