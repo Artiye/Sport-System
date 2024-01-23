@@ -17,6 +17,8 @@ namespace Sport_System.MappingProfiles
     {
         public ProfileMapper()
         {
+            
+
             CreateMap<Sport, AddSportDTO>().ReverseMap();
             CreateMap<Sport, EditSportDTO>().ReverseMap();
             CreateMap<Sport, GetSportDTO>().ReverseMap();

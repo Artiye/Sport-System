@@ -10,7 +10,10 @@ namespace Sport_System.Application.Services.Interfaces
 {
     public interface IIdentityUserService
     {
-        Task<GetUserDto> GetUserByIdAsync(string userId);
         Task<List<GetUserDto>> GetAllUsersAsync();
+        Task<ApiResponse> UpdateUserAsync(EditUserDTO dto);
+        Task<ApiResponse> UpdateUserProfilePictureAsync(EditUserProfilePictureDTO dto);
+        Task<GetUserDto> GetUserByIdAsync(string userId);
+       
     }
 }

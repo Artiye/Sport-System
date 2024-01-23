@@ -16,21 +16,40 @@ namespace Sport_System.Controllers
             _identityUserService = identityUserService;
         }
 
+        [HttpGet("GetAllUsers")]
+        public async Task<ActionResult<List<GetUserDto>>> GetAllUsers()
+        {
+            return await _identityUserService.GetAllUsersAsync();
+        }
+
+        
+
+        [HttpPut("UpdateUser")]
+        public async Task<ActionResult<ApiResponse>> UpdateUser([FromForm] EditUserDTO dto)
+        {
+            return await _identityUserService.UpdateUserAsync(dto);
+        }
+
+        [HttpPut("UpdateUserProfilePicture")]
+        public async Task<ActionResult<ApiResponse>> UpdateUserProfilePicture([FromForm] EditUserProfilePictureDTO dto)
+        {
+            return await _identityUserService.UpdateUserProfilePictureAsync(dto);
+        }
+
+       
+
         [HttpGet("GetUserById/{userId}")]
         public async Task<ActionResult<GetUserDto>> GetUserById(string userId)
         {
             var user = await _identityUserService.GetUserByIdAsync(userId);
 
             if (user == null)
+            {
                 return NotFound($"User with ID {userId} not found.");
+            }
 
             return Ok(user);
         }
-
-        [HttpGet("GetAllUsers")]
-        public async Task<ActionResult<List<GetUserDto>>> GetAllUsers()
-        {
-            return await _identityUserService.GetAllUsersAsync();
-        }
+        
     }
 }

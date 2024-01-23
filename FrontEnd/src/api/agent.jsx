@@ -20,6 +20,10 @@ const Identity = {
 const User = {
     getUserById: (userId) => requests.get(`UserManagment/GetUserById/${userId}`),
     getAllUsers: () => requests.get('UserManagment/GetAllUsers'),
+    updateUser: (user) => requests.put('UserManagment/UpdateUser', user),
+    updateUserProfilePicture: (user) => requests.put('UserManagment/updateUserProfilePicture', user),
+    getUserById: (userId) => requests.get(`UserManagment/GetUserById/${userId}`),
+    SearchUser : (searchTerm) => requests.get(`UserManagment/Searchuser/${searchTerm}`),
 };
 
 const Team = {
@@ -61,6 +65,7 @@ const Player = {
     getAllPlayers: () => requests.get('Player/GetAllPlayers'),
     getPlayersByTeam: (teamId) => requests.get(`Player/PlayersByTeam/${teamId}`),
 };
+
 
 const agent = {
     Identity,
