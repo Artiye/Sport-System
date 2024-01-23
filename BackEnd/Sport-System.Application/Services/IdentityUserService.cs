@@ -18,22 +18,13 @@ namespace Sport_System.Application.Services
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IMapper _mapper;
+        private readonly IPhotoSaver _photoSaver;
 
-        public IdentityUserService(UserManager<ApplicationUser> userManager, IMapper mapper)
+        public IdentityUserService(UserManager<ApplicationUser> userManager, IMapper mapper, IPhotoSaver photoSaver)
         {
             _userManager = userManager;
             _mapper = mapper;
-        }
-
-        public async Task<GetUserDto> GetUserByIdAsync(string userId)
-        {
-            var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == userId);
-            if (user == null) return null;
-
-            var dto = _mapper.Map<GetUserDto>(user);
-            dto.Roles = (await _userManager.GetRolesAsync(user)).ToList();
-
-            return dto;
+            _photoSaver = photoSaver;
         }
 
         public async Task<List<GetUserDto>> GetAllUsersAsync()
@@ -51,6 +42,70 @@ namespace Sport_System.Application.Services
             }
             return result;
         }
+
+      
+
+        public async Task<ApiResponse> UpdateUserAsync(EditUserDTO dto)
+        {
+            var user = await _userManager.FindByIdAsync(dto.Id);
+            if (user == null) return new ApiResponse(404, "User not found.");
+
+            if (user.FirstName == dto.FirstName &&
+                user.LastName == dto.LastName &&
+                user.Email == dto.Email &&
+                user.DateOfBirth == dto.DateOfBirth &&
+                user.Gender == dto.Gender &&
+                user.UserName == dto.Username &&
+                user.Nationality == dto.Nationality)
+            { return new ApiResponse(400, "No changes were made."); }
+
+            user.FirstName = dto.FirstName;
+            user.LastName = dto.LastName;
+            user.Email = dto.Email;
+            user.DateOfBirth = dto.DateOfBirth;
+            user.Gender = dto.Gender;
+            user.UserName = dto.Username;
+            user.Nationality = dto.Nationality;
+
+            var result = await _userManager.UpdateAsync(user);
+            if (result.Succeeded) return new ApiResponse(200, "User updated successfully.");
+            return new ApiResponse(400, "Failed to update user.");
+        }
+
+        public async Task<ApiResponse> UpdateUserProfilePictureAsync(EditUserProfilePictureDTO dto)
+        {
+            var user = await _userManager.FindByIdAsync(dto.Id);
+            if (user == null) return new ApiResponse(404, "User not found.");
+
+            if (dto.ProfileUrl != null)
+            {
+                string oldPhotoFilePath = "../../../FrontEnd/public" + user.ProfileUrl;
+                string newPhotoFilePath = await _photoSaver.SavePhoto(dto.ProfileUrl);
+                user.ProfileUrl = newPhotoFilePath;
+
+                if (!string.IsNullOrEmpty(user.ProfileUrl) && !string.Equals(user.ProfileUrl, "/images/profilepicturedefault.jpg") && File.Exists(oldPhotoFilePath))
+                    File.Delete(oldPhotoFilePath);
+            }
+            var result = await _userManager.UpdateAsync(user);
+            if (result.Succeeded) return new ApiResponse(200, "User updated successfully.");
+            return new ApiResponse(400, "Failed to update user.");
+        }
+
+       
+        public async Task<GetUserDto> GetUserByIdAsync(string userId)
+        {
+            var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == userId);
+            if (user == null) return null;
+
+            var dto = _mapper.Map<GetUserDto>(user);
+            dto.Roles = (await _userManager.GetRolesAsync(user)).ToList();
+
+
+            return dto;
+        }
+
+       
+
 
 
     }

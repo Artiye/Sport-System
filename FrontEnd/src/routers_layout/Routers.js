@@ -11,6 +11,7 @@ import AddTeam from "../pages/TeamPages/AddTeam";
 import AllTeams from "../pages/TeamPages/AllTeams";
 import AddTournament from "../pages/TournamentPages/AddTournament";
 import TournamentDetails from "../pages/TournamentPages/TournamentDetails";
+import ProfilePage from "../pages/UserProfilePages/ProfilePage";
 import TournamentsList from "../pages/TournamentPages/TournamentsList";
 import TournamentsByUser from "../pages/TournamentPages/TournamentsByUser";
 import AllPlayers from "../pages/PlayerPages/AllPlayers";
@@ -34,6 +35,7 @@ const Routers = () => {
       <Route path="/teams/:teamId" element={<TeamDetails />} />
       <Route path="/add-team" element={<AddTeam />} />
       <Route path="/all-teams" element={<AllTeams />} />
+      <Route path="/Profile" element={<ProfilePage />} />
       <Route path="/my-tournaments" element={<TournamentsByUser />} />
       <Route path="/tournaments" element={<TournamentsList />} />
       <Route path="/add-tournament" element={<AddTournament />} />
